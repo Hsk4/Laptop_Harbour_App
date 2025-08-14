@@ -1,14 +1,12 @@
-import 'package:eproject_sem4/components/G_Navigation.dart';
+import 'package:eproject_sem4/components/general_components/G_Navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';  // Import Riverpod
+import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
 
 void main() {
   runApp(
     // Wrap the entire app with ProviderScope to enable Riverpod
-    const ProviderScope(
-      child: MyApp(),
-    ),
+    const ProviderScope(child: MyApp()),
   );
 }
 
@@ -25,7 +23,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(),
-          home: child,  // Will be GNavigation()
+          home: child, // Will be GNavigation()
         );
       },
       child: const GNavigation(), // Your app's starting widget

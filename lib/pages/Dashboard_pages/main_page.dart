@@ -1,10 +1,9 @@
-import 'package:eproject_sem4/components/appbar_component.dart';
-import 'package:eproject_sem4/components/carousel_component.dart';
-import 'package:eproject_sem4/components/categories_List_component.dart';
-import 'package:eproject_sem4/components/seeall_component.dart';
+import 'package:eproject_sem4/components/mainpage_components/appbar_component.dart';
+import 'package:eproject_sem4/components/mainpage_components/carousel_component.dart';
+import 'package:eproject_sem4/components/mainpage_components/categories_List_component.dart';
+import 'package:eproject_sem4/components/general_components/seeall_component.dart';
 import 'package:eproject_sem4/pages/Dashboard_pages/product_page.dart';
 import 'package:flutter/material.dart';
-
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -74,8 +73,6 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
           ),
-
-
     );
   }
 }

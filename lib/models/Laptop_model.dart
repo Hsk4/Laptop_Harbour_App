@@ -15,6 +15,5 @@ class Laptop {
     required this.price,
     required this.category,
     required this.brand,
-
   });
 }

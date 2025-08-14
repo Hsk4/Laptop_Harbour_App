@@ -1,4 +1,4 @@
-import 'package:eproject_sem4/components/buttons_component.dart';
+import 'package:eproject_sem4/components/general_components/buttons_component.dart';
 import 'package:flutter/material.dart';
 
 
