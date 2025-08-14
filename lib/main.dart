@@ -1,5 +1,5 @@
-import 'package:eproject_sem4/pages/landing_page.dart';
 import 'package:flutter/material.dart';
+import 'pages/splash_screen_pages/landing_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(),
       home: LandingPage(),
 

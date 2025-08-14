@@ -15,6 +15,7 @@ class LandingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // image
+            Image.asset('assets/images/harbor_landing.png'),
             // this will be replaced with an image later
             // text
             // subtext
