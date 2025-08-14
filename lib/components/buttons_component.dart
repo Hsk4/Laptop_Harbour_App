@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyButton extends StatelessWidget {
   final String text;
@@ -10,17 +11,17 @@ class MyButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 120.0, vertical: 14.0), // wider for pill shape
+        padding: EdgeInsets.symmetric(horizontal: 120.0.w, vertical: 14.0.h), // wider for pill shape
         decoration: BoxDecoration(
           color: Color(0xFFFF3B30), // exact red from image
-          borderRadius: BorderRadius.circular(30.0), // rounded pill shape
+          borderRadius: BorderRadius.circular(30.0.w), // rounded pill shape
         ),
         child: Text(
           text,
           textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.white,
-            fontSize: 18.0, // slightly bigger font for prominence
+            fontSize: 18.0.w, // slightly bigger font for prominence
             fontWeight: FontWeight.bold,
           ),
         ),
