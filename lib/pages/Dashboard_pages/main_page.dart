@@ -5,74 +5,72 @@ import 'package:eproject_sem4/components/general_components/seeall_component.dar
 import 'package:eproject_sem4/pages/Dashboard_pages/product_page.dart';
 import 'package:flutter/material.dart';
 
-class MainPage extends StatefulWidget {
+import '../../providers/category_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+class MainPage extends ConsumerStatefulWidget {
   const MainPage({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  ConsumerState<MainPage> createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageState extends ConsumerState<MainPage> {  // note: ConsumerState instead of State
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-          // main column for the main page
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SingleChildScrollView(
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // app bar container
-                  AppbarComponent(),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              AppbarComponent(),
 
-                  // special for you and see all buttons
-                  SeeAllComponent(
-                    text: 'SpecialForYou',
-                    textButton: 'See All',
-                    onTap: () {},
-                  ),
+              SeeAllComponent(
+                text: 'SpecialForYou',
+                textButton: 'See All',
+                onTap: () {},
+              ),
 
-                  //special for you section carousel
-                  ImageCarousel(
-                    imageUrls: [
-                      'assets/images/special1.jpg',
-                      'assets/images/special2.jpg',
-                      'assets/images/special3.jpg',
-                    ],
-                  ),
-
-                  // categories text section
-                  SeeAllComponent(
-                    text: 'Categories',
-                    textButton: 'See All',
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ProductPage(),
-                        ),
-                      );
-                    },
-                  ),
-
-                  // categories section
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        width: 400, // adjust width as desired
-                        child: CategoriesListComponent(),
-                      ),
-                    ),
-                  ),
-
-                  // flash sale section
+              ImageCarousel(
+                imageUrls: [
+                  'assets/images/special1.jpg',
+                  'assets/images/special2.jpg',
+                  'assets/images/special3.jpg',
                 ],
               ),
-            ),
+
+              SeeAllComponent(
+                text: 'Categories',
+                textButton: 'See All',
+                onTap: () {
+                  // Reset the selectedCategoryProvider before navigating
+                  ref.read(selectedCategoryProvider.notifier).state = null;
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProductPage(),
+                    ),
+                  );
+                },
+              ),
+
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 400,
+                    child: CategoriesListComponent(),
+                  ),
+                ),
+              ),
+
+              // Flash sale section (if any)
+            ],
           ),
+        ),
+      ),
     );
   }
 }
