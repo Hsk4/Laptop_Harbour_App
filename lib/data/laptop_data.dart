@@ -1,12 +1,13 @@
 import '../models/Laptop_model.dart';
 
 final List<Laptop> laptops = [
+  //Gaming
   Laptop(
     id: 'l1',
-    name: 'Predator Helios 300',
+    name: 'Acer Predator Helios 300',
     imageUrl: '',
     description: 'Powerful gaming laptop with ...',
-    price: 1500,
+    price: 1400,
     category: 'Gaming',
     brand: 'Acer',
   ),
@@ -19,9 +20,19 @@ final List<Laptop> laptops = [
     category: 'Office',
     brand: 'Dell',
   ),
+  //MacBooks
   Laptop(
     id: 'l3',
-    name: 'MacBook Pro 16"',
+    name: 'MacBook Air M2 (13-inch)',
+    imageUrl: '',
+    description: 'Portable ultrabook for office use ...',
+    price: 1100,
+    category: 'MacBooks',
+    brand: 'Apple',
+  ),
+  Laptop(
+    id: 'l4',
+    name: 'MacBook Air M2 (15-inch)',
     imageUrl: '',
     description: 'Portable ultrabook for office use ...',
     price: 1200,
@@ -29,7 +40,44 @@ final List<Laptop> laptops = [
     brand: 'Apple',
   ),
   Laptop(
-    id: 'l4',
+    id: 'l5',
+    name: 'MacBook Pro M2 (13-inch)',
+    imageUrl: '',
+    description: 'Portable ultrabook for office use ...',
+    price: 1500,
+    category: 'MacBooks',
+    brand: 'Apple',
+  ),
+  Laptop(
+    id: 'l6',
+    name: 'MacBook Pro M2 (13-inch)',
+    imageUrl: '',
+    description: 'Portable ultrabook for office use ...',
+    price: 1500,
+    category: 'MacBooks',
+    brand: 'Apple',
+  ),
+  Laptop(
+    id: 'l7',
+    name: 'MacBook Pro M2 (14-inch)',
+    imageUrl: '',
+    description: 'Portable ultrabook for office use ...',
+    price: 2000,
+    category: 'MacBooks',
+    brand: 'Apple',
+  ),
+  Laptop(
+    id: 'l8',
+    name: 'MacBook Pro M2 Max (16-inch)',
+    imageUrl: '',
+    description: 'Portable ultrabook for office use ...',
+    price: 2500,
+    category: 'MacBooks',
+    brand: 'Apple',
+  ),
+  //chromebooks
+  Laptop(
+    id: 'l9',
     name: 'chromebook 14',
     imageUrl: '',
     description: 'Portable ultrabook for office use ...',
@@ -37,5 +85,52 @@ final List<Laptop> laptops = [
     category: 'Chromebooks',
     brand: 'Acer',
   ),
+  Laptop(
+    id: 'l10',
+    name: 'Google Pixelbook Go',
+    imageUrl: '',
+    description: 'Portable ultrabook for office use ...',
+    price: 649,
+    category: 'Chromebooks',
+    brand: 'Acer',
+  ),
+  Laptop(
+    id: 'l11',
+    name: 'ASUS Chromebook Flip C436',
+    imageUrl: '',
+    description: 'Portable ultrabook for office use ...',
+    price: 800,
+    category: 'Chromebooks',
+    brand: 'Acer',
+  ),
+  Laptop(
+    id: 'l12',
+    name: 'HP Chromebook x360 14c',
+    imageUrl: '',
+    description: 'Portable ultrabook for office use ...',
+    price: 700,
+    category: 'Chromebooks',
+    brand: 'Acer',
+  ),
+  Laptop(
+    id: 'l13',
+    name: 'Lenovo Chromebook Duet 5',
+    imageUrl: '',
+    description: 'Portable ultrabook for office use ...',
+    price: 300,
+    category: 'Chromebooks',
+    brand: 'Acer',
+  ),
+  Laptop(
+    id: 'l14',
+    name: 'Samsung Galaxy Chromebook 2',
+    imageUrl: '',
+    description: 'Portable ultrabook for office use ...',
+    price: 300,
+    category: 'Chromebooks',
+    brand: 'Acer',
+  ),
+
+
   // more laptops...
 ];
