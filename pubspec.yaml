@@ -42,6 +42,26 @@ dependencies:
   google_nav_bar: ^5.0.7
   font_awesome_flutter: ^10.9.0
   flutter_riverpod: ^2.6.1
+  flutter_launcher_icons: ^0.14.4
+
+flutter_icons:
+  image_path: "assets/images/harbor_logo.png"
+  android: true
+  ios: true
+  web: true
+  windows: true
+  linux: true
+  # The following line ensures that the Flutter SDK is included as a dependency.
+  sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+
+  # Add other dependencies here, e.g.:
+  # http: ^0.13.3
+  # provider: ^6.0.0
+  # shared_preferences: ^2.0.6
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +79,12 @@ flutter_native_splash:
   color: "#ff3333"
   image: assets/images/harbor_logo.png
   android_12:
+    image: assets/images/harbor_logo.png
+    color: "#ff3333"
+  android_13:
+    image: assets/images/harbor_logo.png
+    color: "#ff3333"
+  android_11:
     image: assets/images/harbor_logo.png
     color: "#ff3333"
 # For information on the generic Dart part of this file, see the

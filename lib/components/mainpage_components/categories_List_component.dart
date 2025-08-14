@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../models/categories_model.dart';
-import 'my_icon_component.dart';
-import '../pages/Dashboard_pages/product_page.dart';
-import '../providers/category_provider.dart'; // Adjust path as necessary
+import '../../models/categories_model.dart';
+import '../general_components/my_icon_component.dart';
+import '../../pages/Dashboard_pages/product_page.dart';
+import '../../providers/category_provider.dart'; // Adjust path as necessary
 
 class CategoriesListComponent extends ConsumerWidget {
   const CategoriesListComponent({super.key});
