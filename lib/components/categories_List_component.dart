@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../models/categories_model.dart';
 import 'my_icon_component.dart';
+import '../pages/Dashboard_pages/product_page.dart';
+import '../providers/category_provider.dart'; // Adjust path as necessary
 
-class CategoriesListComponent extends StatelessWidget {
+class CategoriesListComponent extends ConsumerWidget {
   const CategoriesListComponent({super.key});
 
   static const List<CategoryItem> categories = [
@@ -16,9 +19,11 @@ class CategoriesListComponent extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final selectedCategory = ref.watch(selectedCategoryProvider);
+
     return SizedBox(
-      height: 60, // Height to fit icon + text comfortably
+      height: 60,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -26,20 +31,30 @@ class CategoriesListComponent extends StatelessWidget {
         separatorBuilder: (_, __) => const SizedBox(width: 20),
         itemBuilder: (context, index) {
           final category = categories[index];
-          return MyIconComponent(
-            iconData: category.iconData,
-            text: category.text,
+          final isSelected = category.text == selectedCategory;
+
+          return GestureDetector(
             onTap: () {
-              // Handle taps here
-              debugPrint('Tapped category: ${category.text}');
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Tapped ${category.text}')),
+              // Update selected category state
+              ref.read(selectedCategoryProvider.notifier).state = category.text;
+
+              // Navigate to ProductPage (no parameter needed, ProductPage watches provider)
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProductPage(),
+                ),
               );
             },
+            child: MyIconComponent(
+              iconData: category.iconData,
+              text: category.text,
+              // Optionally pass isSelected to MyIconComponent to visually highlight it
+              // e.g. selected: isSelected,
+            ),
           );
         },
       ),
     );
-
   }
 }

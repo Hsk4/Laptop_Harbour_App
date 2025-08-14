@@ -40,6 +40,7 @@ dependencies:
   floating_navbar: ^3.0.0
   google_nav_bar: ^5.0.7
   font_awesome_flutter: ^10.9.0
+  flutter_riverpod: ^2.6.1
 
 dev_dependencies:
   flutter_test:
