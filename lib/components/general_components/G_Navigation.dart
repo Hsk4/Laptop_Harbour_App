@@ -45,24 +45,24 @@ class _GNavigationState extends State<GNavigation> {
             tabs:[
               GButton(
                 icon: Icons.home,
-                text: 'Home' ,
+
               ),
               GButton(
                 icon: Icons.favorite,
-                text: 'Wishlist' ,
+
               ),
-      
+
               GButton(
                 icon: Icons.shopping_cart,
-                text: 'Cart',
+
               ),
               GButton(
                 icon: Icons.support_agent_rounded,
-                text: 'Support',
+
               ),
               GButton(
                 icon: Icons.person,
-                text: 'Profile',
+
               ),
             ],
             selectedIndex: _selectedIndex,
@@ -71,9 +71,9 @@ class _GNavigationState extends State<GNavigation> {
                 _selectedIndex = index;
               });
             },
-      
+
           ),
-      
+
         ),
       ),
     );
