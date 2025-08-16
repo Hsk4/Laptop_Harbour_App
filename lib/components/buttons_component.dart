@@ -21,7 +21,7 @@ class MyButton extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.white,
-            fontSize: 18.0.w, // slightly bigger font for prominence
+            fontSize: 12.0.w, // slightly bigger font for prominence
             fontWeight: FontWeight.bold,
           ),
         ),

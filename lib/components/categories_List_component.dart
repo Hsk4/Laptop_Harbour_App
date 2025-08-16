@@ -10,7 +10,7 @@ class CategoriesListComponent extends StatelessWidget {
   static const List<CategoryItem> categories = [
     CategoryItem(iconData: FontAwesomeIcons.gamepad, text: 'Gaming'),
     CategoryItem(iconData: FontAwesomeIcons.laptopCode, text: 'Office'),
-    CategoryItem(iconData: FontAwesomeIcons.desktop, text: 'Workstation'),
+    CategoryItem(iconData: FontAwesomeIcons.desktop, text: 'Workstations'),
     CategoryItem(iconData: FontAwesomeIcons.chrome, text: 'Chromebooks'),
     CategoryItem(iconData: FontAwesomeIcons.apple, text: 'MacBooks'),
   ];

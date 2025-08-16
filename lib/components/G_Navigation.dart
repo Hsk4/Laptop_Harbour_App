@@ -49,12 +49,16 @@ class _GNavigationState extends State<GNavigation> {
               ),
               GButton(
                 icon: Icons.favorite,
-                text: 'wishlist' ,
+                text: 'Wishlist' ,
               ),
       
               GButton(
                 icon: Icons.shopping_cart,
                 text: 'Cart',
+              ),
+              GButton(
+                icon: Icons.support_agent_rounded,
+                text: 'Support',
               ),
               GButton(
                 icon: Icons.person,
