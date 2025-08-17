@@ -20,6 +20,7 @@ class ProductPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color(0xFFFF4548).withOpacity(0.85),  // lighter variant by opacity
         title: Text(selectedCategory ?? 'All Laptops'),
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(48),

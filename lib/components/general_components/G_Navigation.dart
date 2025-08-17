@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
+import '../../pages/Dashboard_pages/cart_page.dart';
+import '../../pages/Dashboard_pages/profile_page.dart';
+import '../../pages/Dashboard_pages/support_page.dart';
+
 class GNavigation extends StatefulWidget {
   const GNavigation({super.key});
 
@@ -17,9 +21,10 @@ class _GNavigationState extends State<GNavigation> {
 
   final List<Widget> _pages = [
     MainPage(),
-    Wishlist(),
-    // SearchPage(),
-    // SettingsPage(),
+    WishlistPage(),
+    CartPage(),
+    SupportPage(),
+    ProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {

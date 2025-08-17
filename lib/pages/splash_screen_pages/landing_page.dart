@@ -1,3 +1,4 @@
+import 'package:eproject_sem4/pages/auth_pages/signin_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/general_components/G_Navigation.dart';
@@ -44,7 +45,7 @@ class LandingPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const GNavigation(),
+                        builder: (context) => const SignInPage(),
                       ),
                     );
                   },
