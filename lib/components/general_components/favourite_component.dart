@@ -16,7 +16,7 @@ class FavoriteButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userEmail = ref.watch(userEmailProvider);
-    final wishlistAsync = ref.watch(wishlistProductIdsProvider);
+    final wishlist = ref.watch(wishlistProductIdsProvider);
     final repo = ref.read(wishlistRepositoryProvider);
 
     if (userEmail == null) {
@@ -30,24 +30,17 @@ class FavoriteButton extends ConsumerWidget {
       );
     }
 
-    return wishlistAsync.when(
-      data: (wishlist) {
-        final isFav = wishlist.contains(productId);
-        return IconButton(
-          icon: Icon(isFav ? Icons.favorite : Icons.favorite_border, color: isFav ? Colors.red : Colors.grey),
-          onPressed: () async {
-            if (isFav) {
-              await repo.removeFromWishlist(userEmail, productId);
-              ref.refresh(wishlistProductIdsProvider);
-            } else {
-              await repo.addToWishlist(userEmail, productId);
-              ref.refresh(wishlistProductIdsProvider);
-            }
-          },
-        );
+    // wishlist is now a List<String> (not AsyncValue), so use directly
+    final isFav = wishlist.contains(productId);
+    return IconButton(
+      icon: Icon(isFav ? Icons.favorite : Icons.favorite_border, color: isFav ? Colors.red : Colors.grey),
+      onPressed: () async {
+        if (isFav) {
+          await ref.read(wishlistProductIdsProvider.notifier).removeFromWishlist(productId);
+        } else {
+          await ref.read(wishlistProductIdsProvider.notifier).addToWishlist(productId);
+        }
       },
-      loading: () => const SizedBox(width: 24, height: 24, child: CircularProgressIndicator(strokeWidth: 2)),
-      error: (e, _) => const Icon(Icons.error),
     );
   }
 }

@@ -1,10 +1,23 @@
-class Laptop {
+import 'package:hive/hive.dart';
+import 'Laptop_model.dart';
+
+part 'Laptop_model.g.dart';
+
+@HiveType(typeId: 0)
+class Laptop extends HiveObject {
+  @HiveField(0)
   final String id;
+  @HiveField(1)
   final String name;
+  @HiveField(2)
   final String description;
+  @HiveField(3)
   final String category;
+  @HiveField(4)
   final String brand;
+  @HiveField(5)
   final String imageUrl;
+  @HiveField(6)
   final double price;
 
   Laptop({
@@ -29,3 +42,4 @@ class Laptop {
     );
   }
 }
+

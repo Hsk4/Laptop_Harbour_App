@@ -1,8 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:hive/hive.dart';
 import '../models/Laptop_model.dart';
 
-class CartItem {
+part 'cart_item.g.dart';
+
+@HiveType(typeId: 1)
+class CartItem extends HiveObject {
+  @HiveField(0)
   final Laptop laptop;
+  @HiveField(1)
   int quantity;
 
   CartItem({required this.laptop, required this.quantity});

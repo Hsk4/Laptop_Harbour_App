@@ -6,6 +6,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';  // Import Riverpod
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_core/firebase_core.dart';  // Import Firebase core package
 import 'firebase_options.dart'; // Import your generated Firebase options
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'models/Laptop_model.dart';
+import 'models/cart_item.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,6 +17,12 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,  // Required for web and all platforms
   );
+
+  await Hive.initFlutter();
+  Hive.registerAdapter(LaptopAdapter());
+  Hive.registerAdapter(CartItemAdapter());
+  await Hive.openBox<List>('wishlistBox');
+  await Hive.openBox<CartItem>('cartBox');
 
   runApp(
     const ProviderScope(child: MyApp()),

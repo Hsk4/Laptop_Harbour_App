@@ -9,40 +9,26 @@ class WishlistPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final wishlistProductsAsync = ref.watch(wishlistProductsProvider);
+    final wishlistProducts = ref.watch(wishlistProductsProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text('My Wishlist')),
-      body: wishlistProductsAsync.when(
-        data: (laptops) {
-          if (laptops.isEmpty) {
-            return const Center(child: Text('Your wishlist is empty'));
-          }
-          return ListView.builder(
-            itemCount: laptops.length,
-            itemBuilder: (context, index) {
-              final laptop = laptops[index];
-              return ListTile(
-                leading: laptop.imageUrl.isNotEmpty
-                    ? Image.asset(laptop.imageUrl, width: 60, height: 60, fit: BoxFit.cover)
-                    : const Icon(Icons.laptop),
-                title: Text(laptop.name),
-                subtitle: Text(
-                  laptop.description,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                trailing: FavoriteButton(productId: laptop.id),
-                onTap: () {
-                  // Optional: navigate to product detail page
-                },
-              );
-            },
-          );
-        },
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stack) => Center(child: Text('Error: $error')),
-      ),
+      body: wishlistProducts.isEmpty
+          ? const Center(child: Text('Your wishlist is empty'))
+          : ListView.builder(
+              itemCount: wishlistProducts.length,
+              itemBuilder: (context, index) {
+                final laptop = wishlistProducts[index];
+                return ListTile(
+                  leading: laptop.imageUrl.isNotEmpty
+                      ? Image.asset(laptop.imageUrl, width: 50, height: 50)
+                      : const Icon(Icons.laptop),
+                  title: Text(laptop.name),
+                  subtitle: Text('Price: \$${laptop.price.toStringAsFixed(2)}'),
+                  trailing: FavoriteButton(productId: laptop.id),
+                );
+              },
+            ),
     );
   }
 }
