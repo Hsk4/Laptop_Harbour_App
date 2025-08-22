@@ -109,6 +109,56 @@ flutter:
   assets:
   - assets/images/harbor_logo.png
   - assets/images/harbor_landing.png
+  - assets/images/chromebooks/asus/chromebook1.png #chromebooks start
+  - assets/images/chromebooks/asus/chromebook2.png
+  - assets/images/chromebooks/asus/chromebook3.png
+  - assets/images/chromebooks/hp/envy1.png
+  - assets/images/chromebooks/hp/envy2.png
+  - assets/images/chromebooks/hp/envy3.png #chromebooks end
+  - assets/images/gaming/acer/acer1.png #gaming Start
+  - assets/images/gaming/acer/acer2.png
+  - assets/images/gaming/acer/acer3.png
+  - assets/images/gaming/hp/omen1.png
+  - assets/images/gaming/hp/omen2.png
+  - assets/images/gaming/hp/omen3.png
+  - assets/images/gaming/lenovo/lenovo1.png
+  - assets/images/gaming/lenovo/lenovo2.png
+  - assets/images/gaming/lenovo/lenovo3.png
+  - assets/images/gaming/msi/katana1.png
+  - assets/images/gaming/msi/katana2.png
+  - assets/images/gaming/msi/katana3.png
+  - assets/images/gaming/razer/razer1.jpg
+  - assets/images/gaming/razer/razer2.jpg
+  - assets/images/gaming/razer/razer3.jpg
+  - assets/images/gaming/rog/rog1.png
+  - assets/images/gaming/rog/rog2.png
+  - assets/images/gaming/rog/rog3.png #gaming end
+  - assets/images/macbooks/macbook1.png #macbook start
+  - assets/images/macbooks/macbook2.png #macbook end
+  - assets/images/office/asus/book1.png #office start
+  - assets/images/office/asus/book2.png
+  - assets/images/office/asus/book3.png
+  - assets/images/office/dell/dell1.png
+  - assets/images/office/dell/dell2.png
+  - assets/images/office/dell/dell3.png
+  - assets/images/office/hp/pavilion1.png
+  - assets/images/office/hp/pavilion2.png
+  - assets/images/office/hp/pavilion3.png
+  - assets/images/office/lenovo/lenovo1.png
+  - assets/images/office/lenovo/lenovo2.png
+  - assets/images/office/lenovo/lenovo3.png #office end
+  - assets/images/workstation/asus/pro1.png #workstation start
+  - assets/images/workstation/asus/pro2.png
+  - assets/images/workstation/asus/pro3.png
+  - assets/images/workstation/dell/dell1.png
+  - assets/images/workstation/dell/dell2.png
+  - assets/images/workstation/dell/dell3.png
+  - assets/images/workstation/hp/pro1.png
+  - assets/images/workstation/hp/pro2.png
+  - assets/images/workstation/hp/pro3.png
+  - assets/images/workstation/msi/msi1.png
+  - assets/images/workstation/msi/msi2.png
+  - assets/images/workstation/msi/msi3.png #workstation end
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
