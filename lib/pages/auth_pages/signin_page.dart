@@ -101,8 +101,7 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   const SizedBox(height: 32),
 
-                  // Use your reusable TextFieldComponent for email
-                  TextFieldComponent(
+                TextFieldComponent(
                     controller: _emailController,
                     hintText: 'Email',
                     prefixIcon: Icons.email,
@@ -119,7 +118,7 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   const SizedBox(height: 16),
 
-                  // Password field with toggle visibility
+
                   TextFieldComponent(
                     controller: _passwordController,
                     hintText: 'Password',

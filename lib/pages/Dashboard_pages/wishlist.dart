@@ -9,23 +9,33 @@ class WishlistPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final wishlistProducts = ref.watch(wishlistProductsProvider);
+     final wishlistProducts = ref.watch(wishlistProductsProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text('My Wishlist')),
       body: wishlistProducts.isEmpty
           ? const Center(child: Text('Your wishlist is empty'))
-          : ListView.builder(
+          : ListView.separated(
               itemCount: wishlistProducts.length,
+              separatorBuilder: (context, index) => const SizedBox(height: 8),
               itemBuilder: (context, index) {
                 final laptop = wishlistProducts[index];
-                return ListTile(
-                  leading: laptop.imageUrl.isNotEmpty
-                      ? Image.asset(laptop.imageUrl, width: 50, height: 50)
-                      : const Icon(Icons.laptop),
-                  title: Text(laptop.name),
-                  subtitle: Text('Price: \$${laptop.price.toStringAsFixed(2)}'),
-                  trailing: FavoriteButton(productId: laptop.id),
+                return Card(
+                  elevation: 2,
+                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  child: ListTile(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    leading: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: laptop.imageUrl.isNotEmpty
+                          ? Image.asset(laptop.imageUrl, width: 56, height: 56, fit: BoxFit.cover)
+                          : const Icon(Icons.laptop, size: 40),
+                    ),
+                    title: Text(laptop.name, style: const TextStyle(fontWeight: FontWeight.bold)),
+                    subtitle: Text('Price:  \\${laptop.price.toStringAsFixed(2)}'),
+                    trailing: FavoriteButton(productId: laptop.id),
+                  ),
                 );
               },
             ),

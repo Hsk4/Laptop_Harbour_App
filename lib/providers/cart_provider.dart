@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hive/hive.dart';
 import '../models/cart_item.dart';
-import '../models/Laptop_model.dart';
 import 'user_provider.dart';
 
 final cartBoxProvider = Provider<Box<CartItem>>((ref) => Hive.box<CartItem>('cartBox'));
@@ -58,24 +57,15 @@ class CartNotifier extends StateNotifier<List<CartItem>> {
     }
   }
 
-  @override
-  set state(List<CartItem> value) {
-    super.state = value;
-    _saveCart();
-  }
-
-  void addToCart(Laptop laptop, int quantity) {
-    final index = state.indexWhere((item) => item.laptop.id == laptop.id);
-    if (index != -1) {
-      state = [
-        for (int i = 0; i < state.length; i++)
-          if (i == index)
-            CartItem(laptop: laptop, quantity: state[i].quantity + quantity)
-          else
-            state[i],
-      ];
+  void addToCart(CartItem item) {
+    final index = state.indexWhere((i) => i.laptop.id == item.laptop.id);
+    if (index == -1) {
+      state = [...state, item];
     } else {
-      state = [...state, CartItem(laptop: laptop, quantity: quantity)];
+      final updated = [...state];
+      final old = updated[index];
+      updated[index] = CartItem(laptop: old.laptop, quantity: old.quantity + item.quantity);
+      state = updated;
     }
     _saveCart();
   }
@@ -85,22 +75,19 @@ class CartNotifier extends StateNotifier<List<CartItem>> {
     _saveCart();
   }
 
-  void clearCart() {
-    state = [];
-    box.clear();
-  }
-
-  void updateQuantity(String laptopId, int newQuantity) {
+  void updateQuantity(String laptopId, int quantity) {
     final index = state.indexWhere((item) => item.laptop.id == laptopId);
-    if (index != -1 && newQuantity > 0) {
-      state = [
-        for (int i = 0; i < state.length; i++)
-          if (i == index)
-            CartItem(laptop: state[i].laptop, quantity: newQuantity)
-          else
-            state[i],
-      ];
+    if (index != -1) {
+      final updated = [...state];
+      final old = updated[index];
+      updated[index] = CartItem(laptop: old.laptop, quantity: quantity);
+      state = updated;
       _saveCart();
     }
+  }
+
+  void clearCart() {
+    state = [];
+    _saveCart();
   }
 }

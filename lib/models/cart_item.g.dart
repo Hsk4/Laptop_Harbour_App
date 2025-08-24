@@ -2,9 +2,9 @@
 
 part of 'cart_item.dart';
 
-// ***************************************************************************
+// **************************************************************************
 // TypeAdapterGenerator
-// ***************************************************************************
+// **************************************************************************
 
 class CartItemAdapter extends TypeAdapter<CartItem> {
   @override
@@ -13,10 +13,9 @@ class CartItemAdapter extends TypeAdapter<CartItem> {
   @override
   CartItem read(BinaryReader reader) {
     final numOfFields = reader.readByte();
-    final fields = <int, dynamic>{};
-    for (int i = 0; i < numOfFields; i++) {
-      fields[reader.readByte()] = reader.read();
-    }
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
     return CartItem(
       laptop: fields[0] as Laptop,
       quantity: fields[1] as int,

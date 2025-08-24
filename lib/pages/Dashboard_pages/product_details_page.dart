@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../components/general_components/favourite_component.dart';
 import '../../models/Laptop_model.dart';
+import '../../models/cart_item.dart';
 import '../../providers/cart_provider.dart';
 
 
@@ -58,7 +59,9 @@ class _ProductDetailsPageState extends ConsumerState<ProductDetailsPage> {
                 const Spacer(),
                 ElevatedButton(
                   onPressed: () {
-                    ref.read(cartProvider.notifier).addToCart(widget.laptop, quantity);
+                    ref.read(cartProvider.notifier).addToCart(
+                      CartItem(laptop: widget.laptop, quantity: quantity),
+                    );
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Added to cart!')),
                     );

@@ -35,6 +35,7 @@ class WishlistRepository {
 }
 
 final wishlistRepositoryProvider = Provider((ref) => WishlistRepository());
+
 final wishlistBoxProvider = Provider<Box<List>>((ref) => Hive.box<List>('wishlistBox'));
 
 final wishlistProductIdsProvider = StateNotifierProvider<WishlistNotifier, List<String>>((ref) {
@@ -63,33 +64,24 @@ class WishlistNotifier extends StateNotifier<List<String>> {
     // Then sync with Firestore
     final ids = await repo.getWishlist(userEmail!);
     state = ids;
-    box.put(userEmail!, ids);
+    // Save to Hive
+    await box.put(userEmail!, ids);
   }
 
   Future<void> addToWishlist(String productId) async {
     if (userEmail == null) return;
     await repo.addToWishlist(userEmail!, productId);
-    final updated = [...state, productId];
-    state = updated;
-    box.put(userEmail!, updated);
+    await _loadWishlist();
   }
 
   Future<void> removeFromWishlist(String productId) async {
     if (userEmail == null) return;
     await repo.removeFromWishlist(userEmail!, productId);
-    final updated = state.where((id) => id != productId).toList();
-    state = updated;
-    box.put(userEmail!, updated);
-  }
-
-  void clearWishlist() {
-    if (userEmail == null) return;
-    state = [];
-    box.delete(userEmail!);
+    await _loadWishlist();
   }
 }
 
 final wishlistProductsProvider = Provider<List<Laptop>>((ref) {
-  final productIds = ref.watch(wishlistProductIdsProvider);
-  return laptops.where((laptop) => productIds.contains(laptop.id)).toList();
+  final ids = ref.watch(wishlistProductIdsProvider);
+  return laptops.where((laptop) => ids.contains(laptop.id)).toList();
 });

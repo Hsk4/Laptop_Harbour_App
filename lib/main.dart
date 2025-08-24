@@ -10,6 +10,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'models/Laptop_model.dart';
 import 'models/cart_item.dart';
+import 'models/order_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,8 +22,11 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(LaptopAdapter());
   Hive.registerAdapter(CartItemAdapter());
+  Hive.registerAdapter(OrderAdapter());
   await Hive.openBox<List>('wishlistBox');
   await Hive.openBox<CartItem>('cartBox');
+  await Hive.openBox<Order>('orderBox');
+  await Hive.openBox<Map>('profileBox');
 
   runApp(
     const ProviderScope(child: MyApp()),
