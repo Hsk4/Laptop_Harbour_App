@@ -89,12 +89,6 @@ flutter_native_splash:
   android_12:
     image: assets/images/harbor_logo.png
     color: "#ff3333"
-  android_13:
-    image: assets/images/harbor_logo.png
-    color: "#ff3333"
-  android_11:
-    image: assets/images/harbor_logo.png
-    color: "#ff3333"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
